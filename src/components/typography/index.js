@@ -7,7 +7,7 @@ const TitleComponent = styled.h2`
   color: ${(props) => props.color};
   font-size: ${(props) => props.fontSize};
   font-weight: ${(props) => props.fontWeight};
-  margin: 1rem 0;
+  margin: 0;
   text-align: ${(props) => props.textAlign};
 `;
 

@@ -6,8 +6,8 @@ import { TodayWeather } from './TodayWeather';
 
 const SidebarContainer = styled.div`
 
-    margin: 0 10px;
     display: flex;
+    padding: 30px;
     flex-direction: column;
     flex-basis: 25%;
     max-width: 20%;
