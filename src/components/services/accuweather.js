@@ -1,9 +1,9 @@
 
-const api_key = 'IR4iwx4TJuy7nu3zkOalfRsL6OCG8WsJ';
+const api_key = process.env.REACT_APP_API_KEY;
 
 export const getCitiesNCodes = async () => {
 
-    const url = `http://dataservice.accuweather.com/locations/v1/topcities/50?apikey=${ api_key}`;
+    const url = `https://dataservice.accuweather.com/locations/v1/topcities/50?apikey=${ api_key}`;
     const resp = await fetch(url);
     const cities = await resp.json();
 
@@ -21,7 +21,7 @@ export const getCitiesNCodes = async () => {
 
 export const getForecast = async (locationKey = 60449) => {
 
-    const url = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${api_key}&metric=true`;
+    const url = `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${api_key}&metric=true`;
     const resp = await fetch(url);
     const data = await resp.json();
 
@@ -41,7 +41,7 @@ export const getForecast = async (locationKey = 60449) => {
 }
 export const getCurrentConditions = async (locationKey = 60449) => {
 
-    const url = `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${api_key}&details=true`;
+    const url = `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${api_key}&details=true`;
     const resp = await fetch(url);
     const data = await resp.json();
     const currentData = data[0];

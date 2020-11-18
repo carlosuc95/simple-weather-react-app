@@ -10,6 +10,7 @@ export const useFetch  = (selectedCity) =>{
     
     const [currentConditions, setCurrentConditions] = useState(initialState)
     const [forecast, setForecast] = useState(initialState)
+    const [error, setError] = useState(null)    
     
     const reset = () => {
         setForecast({
@@ -33,7 +34,10 @@ export const useFetch  = (selectedCity) =>{
             
             
         })
-        .catch(e => console.log(e))
+        .catch(e => {
+            console.log(e)
+            setError('Failed to fetch, try changing the API KEY');
+        })
         
         getForecast(selectedCity)
         .then(forecast => {
@@ -46,14 +50,17 @@ export const useFetch  = (selectedCity) =>{
             })
             
         })
-        .catch(e => console.log(e))
-
+        .catch(e => {
+            console.log(e)
+            setError('Failed to fetch, try changing the API KEY');
+        })
        
     }, [selectedCity]);
 
     return {
         currentConditions,
         forecast,
-        reset
+        reset,
+        error
     };
 }

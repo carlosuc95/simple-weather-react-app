@@ -12,12 +12,13 @@ function App() {
 
   const state = useFetch(selectedCity.value);
 
-  const {currentConditions, forecast} = state;
+  const {currentConditions, forecast, error} = state;
   const {data: dataForecast, loading: loadingForecast} = forecast;
   const {data: dataCC, loading: loadingCC} = currentConditions;
 
   return (
     <>
+      { (error) && <h1>{error}</h1>}
       { (dataCC <= 0 || dataForecast <= 0 || loadingForecast || loadingCC) ? <div id="center"><Loader type="Circles" color="#00BFFF" height={80} width={80}></Loader></div> : 
         <Layout>
           <Reveal effect="fadeInUp">
