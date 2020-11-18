@@ -8,6 +8,7 @@ const TitleComponent = styled.h2`
   font-size: ${(props) => props.fontSize};
   font-weight: ${(props) => props.fontWeight};
   margin: 0;
+  text-decoration: ${(props) => props.textDecoration};
   text-align: ${(props) => props.textAlign};
 `;
 
@@ -19,8 +20,8 @@ const TypographyComponent = styled.p`
   text-align: ${(props) => props.textAlign};
 `;
 
-export const Title =  ({ text, color,textAlign, fontSize, fontWeight, children }) => (
-  <TitleComponent textAlign={textAlign} fontSize={fontSize} fontWeight={fontWeight} color={color}>
+export const Title =  ({ text, color,textAlign, fontSize, fontWeight, children, textDecoration}) => (
+  <TitleComponent textAlign={textAlign} fontSize={fontSize} fontWeight={fontWeight} color={color} textDecoration={textDecoration}>
     {text || children}
   </TitleComponent>
 );

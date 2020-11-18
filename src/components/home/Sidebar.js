@@ -13,12 +13,15 @@ const SidebarContainer = styled.div`
     max-width: 20%;
 `;
 
-export const Sidebar = () => {
+export const Sidebar = ({setSelectedCity, state, selectedCity}) => {
+
+    
+
     return (
         <>
             <SidebarContainer>
-                <SearchBar />
-                <TodayWeather/>
+                <SearchBar state={state} setSelectedCity={setSelectedCity}/>
+                <TodayWeather state={state} selectedCity={selectedCity} />
             </SidebarContainer>
         </>  
     )

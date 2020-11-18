@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
+import { Title } from '../typography';
+import { Highlights } from './Highlights';
 import { Navbar } from './Navbar';
+import { WeekForecast } from './WeekForecast';
 
 const ForecastContainer = styled.div`
 
@@ -13,12 +16,19 @@ const ForecastContainer = styled.div`
 `;
 
 
-export const Forecast = () => {
+export const Forecast = ({state}) => {
+    
+    
+    const {currentConditions, forecast} = state;
+
     return (
-        <>
-            <ForecastContainer>
-                <Navbar/>
-            </ForecastContainer>
-        </>
+        <ForecastContainer>
+            <Navbar/>
+            <WeekForecast forecast={forecast}/>
+            <Title fontSize="2rem">Today's Highlights</Title>
+            <Highlights currentConditions={currentConditions}/>
+
+        </ForecastContainer>
+    
     )
 }

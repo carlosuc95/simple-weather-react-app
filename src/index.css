@@ -15,7 +15,25 @@ body {
 }
 
 a {
-  border-bottom:1px solid black;
-  text-decoration: none;
+  border-bottom: 1px solid black;
+  text-decoration: #eeeeee8e;
+  
+}
+.overText {
+ 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+}
+
+#center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
   
 }

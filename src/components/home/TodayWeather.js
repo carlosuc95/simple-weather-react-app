@@ -4,8 +4,11 @@ import Image from "../image";
 import { Title, Typography } from '../typography';
 import { GiRaining } from "react-icons/gi";
 import { AiFillCloud } from "react-icons/ai";
+import { getDayName } from '../helpers/getDayName';
+import { getHour } from '../helpers/getHour';
 
 const ImgWrapper = styled.div`
+    position: ${ props => props.position};
     display: flex;
     justify-content:center;
     margin-top: 50px;
@@ -13,21 +16,29 @@ const ImgWrapper = styled.div`
 `;
 
 const DataWrapper = styled.div`
+    position: ${ props => props.position};
     display: flex;
+    flex-direction: ${ props => props.flexDirection};
     align-items: center;
     width: 100%;    
     padding: ${ props => props.padding};
+    margin: ${ props => props.margin};
     border-bottom: ${ props => props.borderBottom};
 `;
 
-export const TodayWeather = () => {
+export const TodayWeather = ({state, selectedCity}) => {
+
+    const {currentConditions} = state;
+
+    const {data} = currentConditions;
+
     return (
         <>
             <ImgWrapper>
                 <Image 
-                    src='https://developer.accuweather.com/sites/default/files/01-s.png'
+                    src={`https://developer.accuweather.com/sites/default/files/${data.icon >= 10 ? data.icon : "0" + data.icon}-s.png`}
                     width="80%"
-                    alt="forecast img"
+                    alt="weather-icon"
                 />                
             </ImgWrapper>
             <DataWrapper padding="10px">
@@ -36,20 +47,20 @@ export const TodayWeather = () => {
                     fontWeight={400}
                     color="#444"
                 >
-                    12°C
+                    {data.temperature}
                 </Title>    
             </DataWrapper>
             <DataWrapper padding='10px 20px' borderBottom="1px solid #eee">
                 <Typography
                     fontSize="1.5rem"
                     margin="0px 15px 0px 0px"
-                >Monday, 
+                >{getDayName(data.time)}
                 </Typography>
                 
                 <Typography
                     fontSize="1.5rem"
                     color="#a09595"
-                >16:00
+                    >{getHour(data.time)}
                 </Typography>
             </DataWrapper>
             <DataWrapper padding="25px 20px">
@@ -58,7 +69,7 @@ export const TodayWeather = () => {
                     fontSize="1rem"
                     color="#a09595"
                     margin="0 0 0 18px"
-                >Cloudy
+                >{data.weatherText}
                 </Typography>
             </DataWrapper>           
             <DataWrapper padding="20px 20px">
@@ -67,17 +78,13 @@ export const TodayWeather = () => {
                     fontSize="1rem"
                     color="#a09595"
                     margin="0 0 0 18px"
-                >Rainy
+                >{data.precipitation === null ? 'No precipitation' : data.precipitation}
                 </Typography>
             </DataWrapper>
-            <ImgWrapper>
-                <Image 
-                    src='https://canalveo.com/wp-content/uploads/2020/09/Nueva-York.jpeg'
-                    width="100%"
-                    borderRadius="20%"
-                    alt="country img"
-                />                
-            </ImgWrapper>           
+
+            <DataWrapper flexDirection="column" margin="80px 0 0 0">     
+                <Title fontSize="3rem" textAlign="center">{(selectedCity) ||  "Santiago" }</Title>
+            </DataWrapper>
             
         </>
     )

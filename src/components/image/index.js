@@ -25,7 +25,7 @@ const Image = ({
   maxWidth,
   minHeight,
   minWidth,
-  borderRadius
+  borderRadius,
 }) => (
   <ImageComponent
     src={src}
@@ -39,6 +39,8 @@ const Image = ({
     borderRadius={borderRadius}
   />
 );
+
+
 
 Image.propTypes = {
   src: PropTypes.string.isRequired,

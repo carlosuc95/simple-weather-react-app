@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 // import  Srch from "@styled-icons/boxicons-regular/Search";
 import { BiSearch } from "react-icons/bi";
 import { GiCancel } from "react-icons/gi";
+import { getCitiesNCodes } from '../services/accuweather';
+import Select from 'react-select'
+
 
 
 const Container = styled.div`
@@ -12,10 +15,10 @@ const Container = styled.div`
     
 `;
 
-const Input = styled.input`
+const WrapperInput = styled.div`
     width: 70%;
     padding: 10px;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 500;
     text-align: center; 
     border-radius: 90px;
@@ -26,7 +29,7 @@ const Input = styled.input`
 
 const Icon = styled(BiSearch)`
     
-    padding: 10px;
+    padding: 15px 10px;
     font-size: 30px;
 
 `;
@@ -35,18 +38,38 @@ const RemoveButton = styled.button`
      padding: 10px;
      background-color: transparent;
      border: none;
-`
+`;
 
-// const Search = styled(Srch)`
-//     color: blue;
-// `
+export const SearchBar = ({state, setSelectedCity}) => {
 
 
-export const SearchBar = () => {
+
+    const [options, setOptions] = useState([])
+    
+    const {reset} = state;
+
+    const handleChange = (options) => {
+        reset();
+        setSelectedCity(options);
+    };
+    
+    getCitiesNCodes()
+    .then(options => {
+        
+        setOptions(options);
+    });
+    
+
     return (
         <Container>
             <Icon />
-            <Input placeholder="Search for places..."/>
+            <WrapperInput >
+                <Select
+                    options={options} 
+                    placeholder="Search for places..."
+                    onChange={ handleChange }
+                    />
+            </WrapperInput>
             <RemoveButton>
                 <GiCancel size="1.5rem" />
             </RemoveButton>

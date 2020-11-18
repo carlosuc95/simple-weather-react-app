@@ -10,38 +10,31 @@ const NavbarComponent = styled.div`
 `;
 
 const NavMenu = styled.ul`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+
     list-style: none;
+    padding: 0 15px;
    
 `; 
 
 const Item = styled.li`
-    margin-right: 20px;
+    
+    background-color: #444;
+    padding: 2px 8px;
+    border-radius: 70%;
 `;
 
 
 
 export const Navbar = () => {
     return (
-         <NavbarComponent>
-             <NavMenu>
+
+        <NavbarComponent>
+            <Title textDecoration="underline" fontSize="2rem">Week</Title>           
+            <NavMenu>
                 <Item>
-                     <a href='#'><Title fontSize="2rem">Week</Title></a>
+                     <Typography color="white" fontSize="2rem">C°</Typography>
                 </Item>
-                <Item>
-                     <a href='#'><Title fontSize="2rem">Today</Title></a>
-                </Item>
-             </NavMenu>
-             <NavMenu>
-                <Item>
-                     <a href='#'><Typography fontSize="2rem">C°</Typography></a>
-                </Item>
-                <Item>
-                     <a href='#'><Typography fontSize="2rem">F°</Typography></a>
-                </Item>
-             </NavMenu>
+            </NavMenu>
          </NavbarComponent>
     )
 }
