@@ -7,7 +7,7 @@ In .env file use API_KEY from MyApps in API Accuweather Page. Note: Register is 
 
 In the project directory, you can run:
 
-### `yarn start o npm install`
+### `yarn start or npm install`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
