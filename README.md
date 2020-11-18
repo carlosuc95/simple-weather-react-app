@@ -3,6 +3,8 @@
 ## How to use
 In .env file use API_KEY from MyApps in API Accuweather Page. Note: Register is required
 
+![alt text](https://cdn3.iconfinder.com/data/icons/luchesa-vol-9/128/Weather-512.png)
+ 
 ## Available Scripts
 
 In the project directory, you can run:
