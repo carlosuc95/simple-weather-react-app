@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 // import  Srch from "@styled-icons/boxicons-regular/Search";
 import { BiSearch } from "react-icons/bi";
@@ -53,11 +53,15 @@ export const SearchBar = ({state, setSelectedCity}) => {
         setSelectedCity(options);
     };
     
-    getCitiesNCodes()
-    .then(options => {
-        
-        setOptions(options);
-    });
+    useEffect(() => {
+
+        getCitiesNCodes()
+        .then(options => {
+            
+            setOptions(options);
+        });
+      
+    }, [])
     
 
     return (

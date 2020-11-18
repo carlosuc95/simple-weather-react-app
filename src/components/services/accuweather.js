@@ -1,5 +1,5 @@
 
-const api_key = 'QCk2SUm9Hf5ATog8goHRYUw9hUqGAG2T';
+const api_key = 'IR4iwx4TJuy7nu3zkOalfRsL6OCG8WsJ';
 
 export const getCitiesNCodes = async () => {
 

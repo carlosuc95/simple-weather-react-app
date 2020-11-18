@@ -21,36 +21,34 @@ export const useFetch  = (selectedCity) =>{
             loading: true
         })
     }
-
     useEffect(() => {
+        
         getCurrentConditions(selectedCity)
         .then(currentConditions => {
+            setCurrentConditions({
+                data: currentConditions,
+                loading:false
+            })
             
-           setTimeout(() => {
-               
-               setCurrentConditions({
-                   data: currentConditions,
-                   loading:false
-               })
-           }, 2000);
-
-        
+            
+            
         })
         .catch(e => console.log(e))
-
+        
         getForecast(selectedCity)
         .then(forecast => {
-            setTimeout(() => {
+            
+            
+            setForecast({
+                data: forecast,
+                loading:false
                 
-                setForecast({
-                    data: forecast,
-                    loading:false
-                    
-                })
-            }, 2000);
+            })
+            
         })
         .catch(e => console.log(e))
-        
+
+       
     }, [selectedCity]);
 
     return {
