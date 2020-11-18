@@ -1,7 +1,7 @@
 # Simple Weather React App
-
+**DEMO** https://vigorous-nobel-dc4752.netlify.app/ only for **Desktop**, responsive Coming Soon...
 ## How to use
-In .env file use API_KEY from MyApps in API Accuweather Page. Note: Register is required
+In .env file use **API_KEY** from MyApps in API Accuweather Page. Note: Register is required
 
 ![alt text](https://cdn3.iconfinder.com/data/icons/luchesa-vol-9/128/Weather-512.png)
  
